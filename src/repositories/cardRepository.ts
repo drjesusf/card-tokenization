@@ -7,7 +7,6 @@ import {v4 as uuidv4} from 'uuid';
 export class CardRepository{
     async AddCard(card: Card): Promise<string>{
         try{
-            console.log("enter CardRepository.AddCard")
             const dynamo = new DynamoDBClient({});
             const dynamoClient = DynamoDBDocumentClient.from(dynamo);
 
@@ -35,12 +34,12 @@ export class CardRepository{
             const ttl = Math.floor(Date.now() / 1000) + ttlInSeconds;
             newCard['TimeToLive'] = ttl;
 
-                await dynamoClient.send(
-                    new PutCommand({
-                        TableName: "CardTable",
-                        Item:newCard
-                    })
-                );
+            await dynamoClient.send(
+                new PutCommand({
+                    TableName: "CardTable",
+                    Item:newCard
+                })
+            );
             return cardId;
         }catch(error){
             console.log(`error:${error}`);

@@ -5,7 +5,7 @@ import {getToken} from '@functions/getToken'
 import {getCard} from '@functions/getCard'
 
 const serverlessConfiguration: AWS = {
-  service: 'stack-11',
+  service: 'stack-card-tokenization',
   frameworkVersion: '3',
   plugins: ['serverless-esbuild','serverless-offline'],
   provider: {
