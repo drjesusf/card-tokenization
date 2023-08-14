@@ -33,3 +33,20 @@ serverless deploy
 ```
 
 ![APIGT-GETCARD](https://github.com/drjesusf/card-tokenization/assets/2379064/9db8561e-64e0-4a0e-9619-3240797c75fd)
+
+apigwgettoken
+![APIGT-GETCTOKEN](https://github.com/drjesusf/card-tokenization/assets/2379064/dc316d67-2bde-4491-b0cb-f5d0e0f46cdb)
+
+apigwgetcard diagrama
+![APIGT-GETCARD-DIAGRAMA](https://github.com/drjesusf/card-tokenization/assets/2379064/4acb4db8-77af-4203-8563-68485a90a98b)
+
+![APIGT-GETTOKEN-DIAGRAMA](https://github.com/drjesusf/card-tokenization/assets/2379064/cde709e7-8698-4f7d-aa18-a60b1f7b0555)
+
+![lambda-GETCTOKEN](https://github.com/drjesusf/card-tokenization/assets/2379064/ca378a75-1eb1-4366-8154-3010f2435642)
+
+![lambda-GETCARD](https://github.com/drjesusf/card-tokenization/assets/2379064/1c3e8e88-6f22-43be-91fa-4e584356d17e)
+
+![POSTMAN-GETCTOKEN](https://github.com/drjesusf/card-tokenization/assets/2379064/fb08b7db-404d-4c2a-af79-641e047204dd)
+
+![POSTMAN-GETCARD](https://github.com/drjesusf/card-tokenization/assets/2379064/9d82f5be-243b-47b5-9356-d84c8d30bef0)
+
