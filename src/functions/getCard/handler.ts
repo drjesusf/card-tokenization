@@ -4,9 +4,9 @@ import { middyfy } from '@libs/lambda';
 import { CardService }  from "../../services/cardService";
 
 export const getCard = middyfy(async(event: APIGatewayProxyEvent):Promise<APIGatewayProxyResult> => {
-    var tokenAuth = 'pk_123456';
-    var currentTokenBearerAuth = event.headers['Authorization'];
-    var currentTokenAuth = currentTokenBearerAuth?.substring(7);
+    const tokenAuth = 'pk_123456';
+    const currentTokenBearerAuth = event.headers['Authorization'];
+    const currentTokenAuth = currentTokenBearerAuth?.substring(7);
 
     if(currentTokenAuth !== tokenAuth){
         return formatJSONResponse({
@@ -22,11 +22,11 @@ export const getCard = middyfy(async(event: APIGatewayProxyEvent):Promise<APIGat
         })
     }
 
-    var token = event.body.token;
+    const token = event.body.token;
     
     //Metodo para obtener desde dynamodb
-    var cardService = new CardService();
-    let currentCard = await cardService.getCard(token);
+    const cardService = new CardService();
+    const currentCard = await cardService.getCard(token);
 
     const card = {
         cardId:currentCard.cardId,

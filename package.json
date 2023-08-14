@@ -5,7 +5,7 @@
   "main": "serverless.ts",
   "scripts": {
     "build": "tsc",
-    "linter": "eslint . --ext .ts",
+    "linter": "eslint . --ext .ts  --fix",
     "test": "jest"
   },
   "engines": {

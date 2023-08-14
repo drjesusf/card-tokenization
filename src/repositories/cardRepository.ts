@@ -42,7 +42,6 @@ export class CardRepository{
             );
             return cardId;
         }catch(error){
-            console.log(`error:${error}`);
             return "EMPTY"
         }    
     }
@@ -59,11 +58,8 @@ export class CardRepository{
                 }),
               );
             
-            console.log(`card:${card}`);
-            console.log("card.cardId" + card.Item.cardId);
             return <Card>(<unknown>card.Item);
         }catch(error){
-            console.log(`error:${error}`);
             return new Card("NOT EXIST","","","","");
         }
     }

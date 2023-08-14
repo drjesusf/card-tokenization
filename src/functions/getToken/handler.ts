@@ -2,15 +2,14 @@ import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
 
 import { formatJSONResponse } from '@libs/api-gateway';
 import { middyfy } from '@libs/lambda';
-import {v4 as uuidv4} from 'uuid';
 import {Card} from '../../models/card';
 import { CardService }  from "../../services/cardService";
 import schema from './schema';
 
 const handler: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
-    let tokenAuth = 'pk_123456';
-    let currentTokenBearerAuth = event.headers['Authorization'];
-    let currentTokenAuth = currentTokenBearerAuth?.substring(7);
+    const tokenAuth = 'pk_123456';
+    const currentTokenBearerAuth = event.headers['Authorization'];
+    const currentTokenAuth = currentTokenBearerAuth?.substring(7);
     
     if(currentTokenAuth !== tokenAuth){
         return formatJSONResponse({
@@ -26,7 +25,7 @@ const handler: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event)
         })
     }
 
-    let card = new Card(
+    const card = new Card(
             event.body.card_number,
             event.body.cvv,
             event.body.expiration_month,
@@ -34,8 +33,8 @@ const handler: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event)
             event.body.email);
     
     //Metodo para almacenar en dynamodb
-    let cardService = new CardService();
-    let newToken = await cardService.getToken(card);
+    const cardService = new CardService();
+    const newToken = await cardService.getToken(card);
 
     return formatJSONResponse({
         status : 200,
