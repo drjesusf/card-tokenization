@@ -1,15 +1,20 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+//impor { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
+
 import { formatJSONResponse } from '@libs/api-gateway';
 import { middyfy } from '@libs/lambda';
 import {v4 as uuidv4} from 'uuid';
 import {Card} from '../../models/card';
 import { CardService }  from "../../services/cardService";
-
-export const getToken = middyfy(async(event: APIGatewayProxyEvent):Promise<APIGatewayProxyResult> => {
+import schema from './schema';
+//export const getToken = middyfy(async(event: APIGatewayProxyEvent):Promise<APIGatewayProxyResult> => {
+const handler: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
     var tokenAuth = 'pk_123456';
     var currentTokenBearerAuth = event.headers['Authorization'];
     var currentTokenAuth = currentTokenBearerAuth?.substring(7);
+    
     console.log(`CurrentToken:${currentTokenAuth}`);
+    
     if(currentTokenAuth !== tokenAuth){
         return formatJSONResponse({
             status : 401,
@@ -48,4 +53,6 @@ export const getToken = middyfy(async(event: APIGatewayProxyEvent):Promise<APIGa
         message: "exito",
         token: newToken
     })
-})
+};
+
+export const getToken = middyfy(handler);
