@@ -30,6 +30,6 @@ npm run test
 ```sh
 serverless deploy
 
-![APIGT-GETCTOKEN](https://github.com/drjesusf/card-tokenization/assets/2379064/bf0059c3-0ce1-4d5f-9bb0-dd70049b2dc9)
+![image](https://github.com/drjesusf/card-tokenization/assets/2379064/bf0059c3-0ce1-4d5f-9bb0-dd70049b2dc9)
 
 ```
